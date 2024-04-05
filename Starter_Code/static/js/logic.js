@@ -14,7 +14,7 @@ function createMap(data) {
   });
 
   // Step 3: Add a base tile layer from OpenStreetMap to the map
-  L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 18
   }).addTo(myMap);
@@ -57,7 +57,7 @@ function createLegend(map) {
     legend.onAdd = function () {
         let div = L.DomUtil.create('div', 'info legend');
             let depths = [-10, 10, 30, 50, 70, 90];
-            let colors = ["#feb24c", "#fd8d3c", "#fc4e2a", "#e31a1c", "#bd0026", "#800026"];
+            let colors = ["#98EE00", "#D4EE00", "#EECC00", "#EE9C00", "#EA822C", "#EA2C2C"];
             let labels = [];
         
         for (let i = 0; i < depths.length; i++) {
@@ -75,17 +75,17 @@ function createLegend(map) {
 function getColor(depth) {
   let color;
   if (depth > 90) {
-    color = "#800026";
+    color = "#EA2C2C";
   } else if (depth > 70) {
-    color = "#BD0026";
+    color = "#EA822C";
   } else if (depth > 50) {
-    color = "#E31A1C";
+    color = "#EE9C00";
   } else if (depth > 30) {
-    color = "#FC4E2A";
+    color = "#EECC00";
   } else if (depth > 10) {
-    color = "#FD8D3C";
+    color = "#D4EE00";
   } else {
-    color = "#FEB24C";
+    color = "#98EE00";
   }
   return color;
 }
